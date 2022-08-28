@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import CategoriesScreen from './views/CategoriesScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import MealsOverviewScreen from './views/MealsOverviewScreen';
+import MealDetails from './views/MealDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,10 @@ export default function App() {
             //     title: catId,
             //   };
             // }}
+          />
+          <Stack.Screen 
+            name="MealDetails"
+            component={MealDetails}
           />
         </Stack.Navigator>
 

@@ -22,7 +22,7 @@ function MealsOverviewScreen({ route, navigation }) {
   }, [catId, navigation]);
   
   function renderMealItem(itemData) {
-    const item = itemData.item;
+        const item = itemData.item;
 
     const mealItemProps = {
       title: item.title,
@@ -30,10 +30,17 @@ function MealsOverviewScreen({ route, navigation }) {
       affordability: item.affordability,
       duration: item.duration,
       complexity: item.complexity,
+      id: item.id
+    }
+    function pressHandler(){
+      navigation.navigate("MealDetails", { 
+        mealId: item.id,
+      });
     }
 
     return <MealItem 
      {...mealItemProps}
+     onPress={pressHandler}
     />
   }
 
@@ -42,7 +49,7 @@ function MealsOverviewScreen({ route, navigation }) {
      <FlatList data={displayedMeals}
       keyExtractor={(item) => item.id}
       renderItem={renderMealItem}
-     />
+           />
     </View>
   )
 
